@@ -1,4 +1,3 @@
-require 'byebug'
 class Employee
 
   attr_reader :salary, :name
@@ -30,23 +29,11 @@ class Manager < Employee
         queue += e.employees if e.is_a?(Manager)
       end
     end
-
-    # employees_salary = @employees.inject {|sum, employee| sum += employee.salary}
     bonus *= multiplier
   end
 
   def add_employee(employee)
-
-    # byebug if self.name == "ned"
-    # empl_arr = []
     @employees << employee
-    # if employee.is_a?(Manager)
-    #   employee.employees.each do |e|
-    #     @employees += add_employee(e)
-    #   end
-    # end
-    # empl_arr += add_employee(e.employees) if e.is_a?(Manager)
-    # @employees.concat(empl_arr)
   end
 end
 
