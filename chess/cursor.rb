@@ -1,4 +1,5 @@
 require "io/console"
+require 'byebug'
 
 KEYMAP = {
   " " => :space,
@@ -76,14 +77,17 @@ class Cursor
   end
 
   def handle_key(key)
+    # byebug
     #a) return @cursor_pos if :enter or :space
     case key
     when :return, :space
+      # byebug
       return @cursor_pos
 
     # b) if it's LRUD, call update_pos(diff)
-  when :left, :right, :up, :down
+    when :left, :right, :up, :down
       update_pos(MOVES[key])
+      nil
 
     #c) if it's ctrl+c, exit to terminal
     when :ctrl_c
